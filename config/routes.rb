@@ -1,21 +1,17 @@
 Rails.application.routes.draw do
-  namespace :items do
-    get 'past/index'
+
+  scope module: :items do
+    resources :past, only: [:index]
+    resources :today, only: [:index]
+    resources :tomorrow, only: [:index]
   end
 
-  namespace :items do
-    get 'tomorrow/index'
+  resources :tasks, only: [:create, :update, :destroy]
+  resources :items, only: [:update, :destroy]
+
+  authenticated :user do
+    root 'items/today#index', as: :authenticated_root
   end
-
-  namespace :items do
-    get 'today/index'
-  end
-
-  get 'items/create'
-
-  get 'items/update'
-
-  get 'items/destroy'
 
   devise_for :users
   root to: 'pages#home'

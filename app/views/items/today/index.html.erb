@@ -1,2 +1,30 @@
-<h1>Items::Today#index</h1>
-<p>Find me in app/views/items/today/index.html.erb</p>
+<section>
+  <div class="container">
+    <div class="row">
+      <div class="col-xs-12">
+        <h1>Today</h1>
+      </div>
+    </div>
+    <section>
+      <%= simple_form_for(@task) do |f| %>
+        <%= f.input :title %>
+        <%= f.submit %>
+      <% end %>
+    </section>
+    <section>
+      <div class="row">
+        <% @items.each do |item| %>
+          <div class="col-xs-12">
+            <div class="item-card">
+              <%= form_tag do |f| %>
+                <%= check_box_tag(:done) %>
+              <% end %>
+              <%= item.listable.title %>
+            </div>
+          </div>
+        <% end %>
+      </div>
+    </section>
+  </div>
+</section>
+
