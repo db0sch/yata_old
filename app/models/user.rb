@@ -3,4 +3,8 @@ class User < ApplicationRecord
   # :confirmable, :lockable, :timeoutable and :omniauthable
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable
+
+  has_many :items
+  has_many :events, through: :items, source: :listable, source_type: "Event"
+  has_many :tasks, through: :items, source: :listable, source_type: "Task"
 end
