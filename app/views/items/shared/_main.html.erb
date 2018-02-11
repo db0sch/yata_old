@@ -1,0 +1,14 @@
+<div class="col-lg-2 offset-lg-1 d-none d-lg-block">
+  <!-- Nav list -->
+  <%= render "items/shared/navs" %>
+</div>
+<div class="col-lg-6">
+  <!-- New task form -->
+  <section class="mb-5">
+      <%= render "items/shared/form", task: task, date: date %>
+  </section>
+  <!-- Items list -->
+  <section>
+      <%= render "items/shared/list", items: items %>
+  </section>
+</div>
