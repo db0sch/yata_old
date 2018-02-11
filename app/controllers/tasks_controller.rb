@@ -4,9 +4,16 @@ class TasksController < ApplicationController
   def create
     @task = Task.new(task_params)
     @task.save
-    @item = @task.build_item(user: current_user, date: Date.today)
+    @date = Date.parse(params[:task][:items][:date])
+    @item = @task.build_item(user: current_user, date: @date)
     @item.save
-    redirect_to today_index_path
+    if @date == Date.today
+      redirect_to today_index_path
+    elsif @date == Date.tomorrow
+      redirect_to tomorrow_index_path
+    else
+      redirect_to today_index_path
+    end
   end
 
   def update

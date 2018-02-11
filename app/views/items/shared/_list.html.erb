@@ -5,7 +5,7 @@
         <div class="item-card-checkbox">
           <%= form_for item.listable do |f| %>
             <%# check_box_tag(:done) %>
-            <%= f.check_box(:done) %>
+            <%= f.check_box :done %>
           <% end %>
         </div>
         <div class="item-card-title">
