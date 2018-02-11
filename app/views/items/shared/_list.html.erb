@@ -11,12 +11,11 @@
         <div class="item-card-title">
           <span>
             <% if item.listable.done %>
-              <del>item.listable.done</del>
+              <del><%= item.listable.title %></del>
             <% else %>
               <%= item.listable.title %>
             <% end %>
             <del>
-
           </span>
         </div>
       </div>

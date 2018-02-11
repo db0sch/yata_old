@@ -1,6 +1,7 @@
 class Items::TodayController < ApplicationController
   def index
-    @items = current_user.items.where(date: Date.today).includes(:listable)
+    @date = Date.today
+    @items = current_user.items.where(date: @date).includes(:listable)
     @task = Task.new
   end
 end
