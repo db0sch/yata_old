@@ -1,10 +1,25 @@
-<% @items.each do |item| %>
-          <div class="col-xs-12">
-            <div class="item-card">
-              <%= form_tag do |f| %>
-                <%= check_box_tag(:done) %>
-              <% end %>
+<% items.each do |item| %>
+  <div class="col-lg-8 offset-lg-2">
+    <div class="card item-card <%= "border-light" if item.listable.done %>">
+      <div class="card-body item-card-body">
+        <div class="item-card-checkbox">
+          <%= form_for item.listable do |f| %>
+            <%# check_box_tag(:done) %>
+            <%= f.check_box(:done) %>
+          <% end %>
+        </div>
+        <div class="item-card-title">
+          <span>
+            <% if item.listable.done %>
+              <del>item.listable.done</del>
+            <% else %>
               <%= item.listable.title %>
-            </div>
-          </div>
-        <% end %>
+            <% end %>
+            <del>
+
+          </span>
+        </div>
+      </div>
+    </div>
+  </div>
+<% end %>
