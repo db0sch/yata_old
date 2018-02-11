@@ -8,4 +8,8 @@ module ItemsHelper
     end
   end
 
+  def undone_count(date)
+    Task.undone.of(date).count
+  end
+
 end

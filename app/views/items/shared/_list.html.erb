@@ -1,24 +1,22 @@
-<% items.each do |item| %>
-  <!-- <div class="col-lg-8 offset-lg-2"> -->
-    <div class="card item-card <%= "border-light" if item.listable.done %>">
-      <div class="card-body item-card-body">
-        <div class="item-card-checkbox">
-          <%= form_for item.listable do |f| %>
-            <%# check_box_tag(:done) %>
-            <%= f.check_box :done %>
-          <% end %>
-        </div>
-        <div class="item-card-title">
-          <span>
-            <% if item.listable.done %>
-              <del><%= item.listable.title %></del>
-            <% else %>
-              <%= item.listable.title %>
+<ul class="list-unstyled">
+  <% items.each do |item| %>
+    <li>
+      <div class="card item-card <%= "border-light" if item.listable.done %>">
+        <div class="card-body item-card-body">
+          <div class="item-card-checkbox">
+            <%= form_for item.listable do |f| %>
+              <%= f.check_box :done %>
             <% end %>
-            <del>
-          </span>
+          </div>
+          <div class="item-card-title">
+            <% if item.listable.done %>
+              <span class="text-muted"><del><%= item.listable.title %></del></span>
+            <% else %>
+              <span><%= item.listable.title %></span>
+            <% end %>
+          </div>
         </div>
       </div>
-    </div>
-  <!-- </div> -->
-<% end %>
+    </li>
+  <% end %>
+</ul>
