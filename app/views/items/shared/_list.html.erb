@@ -1,0 +1,10 @@
+<% @items.each do |item| %>
+          <div class="col-xs-12">
+            <div class="item-card">
+              <%= form_tag do |f| %>
+                <%= check_box_tag(:done) %>
+              <% end %>
+              <%= item.listable.title %>
+            </div>
+          </div>
+        <% end %>

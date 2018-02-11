@@ -1,2 +1,17 @@
-<h1>Items::Tomorrow#index</h1>
-<p>Find me in app/views/items/tomorrow/index.html.erb</p>
+<section>
+  <div class="container">
+    <div class="row">
+      <div class="col-xs-12">
+        <h1>Tomorrow</h1>
+      </div>
+    </div>
+    <section>
+      <%= render "items/shared/form", task: @task %>
+    </section>
+    <section>
+      <div class="row">
+        <%= render "items/shared/list", items: @items %>
+      </div>
+    </section>
+  </div>
+</section>
