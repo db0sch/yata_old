@@ -4,6 +4,7 @@ Rails.application.routes.draw do
     resources :past, only: [:index]
     resources :today, only: [:index]
     resources :tomorrow, only: [:index]
+    resources :undone, only: [:index]
   end
 
   resources :tasks, only: [:create, :update, :destroy]

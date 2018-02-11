@@ -1,0 +1,18 @@
+<section>
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-lg-6 offset-lg-3">
+        <% if date < Date.today %>
+          <%= render "items/shared/header_undone", date: date %>
+        <% else %>
+          <%= render "items/shared/header", date: date %>
+        <% end %>
+      </div>
+    </div>
+    <div class="row">
+      <%= render 'items/shared/main', task: task, items: items, date: date %>
+    </div>
+  </div>
+</section>
+
+<%= javascript_pack_tag 'checkbox' %>
