@@ -7,7 +7,7 @@ Rails.application.routes.draw do
     resources :undone, only: [:index]
   end
 
-  resources :tasks, only: [:create, :update, :destroy]
+  resources :tasks, only: [:create, :update, :destroy, :edit]
   resources :items, only: [:update, :destroy]
 
   authenticated :user do

@@ -1,5 +1,5 @@
 class TasksController < ApplicationController
-  before_action :set_task, only: [:update, :destroy]
+  before_action :set_task, only: [:update, :destroy, :edit]
 
   def create
     @task = Task.new(task_params)
@@ -17,12 +17,17 @@ class TasksController < ApplicationController
     end
   end
 
+  def edit
+  end
+
   def update
     @task.update(task_params)
     redirect_to today_index_path
   end
 
   def destroy
+    @task.destroy
+    redirect_to today_index_path
   end
 
   private

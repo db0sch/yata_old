@@ -9,5 +9,15 @@
 }
 
 .item-card-checkbox {
-  margin-right: 10px;
+  flex: 0 0 5%;
+}
+
+.item-card-title {
+  flex: 1 0 auto;
+}
+
+.item-card-controls {
+  flex: 0 0 10%;
+  display: flex;
+  justify-content: flex-end;
 }
