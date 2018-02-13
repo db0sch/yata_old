@@ -5,9 +5,10 @@ Rails.application.routes.draw do
     resources :today, only: [:index]
     resources :tomorrow, only: [:index]
     resources :undone, only: [:index]
+    resources :today_schedule, only: [:update, :destroy]
   end
 
-  resources :tasks, only: [:create, :update, :destroy]
+  resources :tasks, only: [:create, :update, :destroy, :edit]
   resources :items, only: [:update, :destroy]
 
   authenticated :user do

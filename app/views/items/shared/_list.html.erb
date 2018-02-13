@@ -15,6 +15,17 @@
               <span><%= item.listable.title %></span>
             <% end %>
           </div>
+          <div class="item-card-controls">
+            <% if date < Date.today %>
+              <%= link_to "Add to today", today_schedule_path(item), method: :put, class: "btn btn-outline-primary btn-sm mx-2"  %>
+            <% end %>
+            <%= link_to edit_task_path(item.listable), class: "mx-1" do %>
+              <%= octicon "pencil", class: "text-muted" %>
+            <% end %>
+            <%= link_to task_path(item.listable), method: :delete, data: { confirm: 'Are you sure?' }, class: "mx-1" do %>
+              <%= octicon "x", class: "text-muted" %>
+            <% end %>
+          </div>
         </div>
       </div>
     </li>
