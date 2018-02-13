@@ -2,9 +2,7 @@ class Items::TodayScheduleController < ApplicationController
   before_action :set_item, only: [:update, :destroy]
 
   def update
-    p "hello"
-    p @item
-    @item.update(date: Date.today)
+    @item.update(date: Date.current)
     redirect_to today_index_path
   end
 

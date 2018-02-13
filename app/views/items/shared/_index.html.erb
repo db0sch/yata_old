@@ -2,7 +2,7 @@
   <div class="container-fluid">
     <div class="row">
       <div class="col-lg-6 offset-lg-3">
-        <% if date < Date.today %>
+        <% if date < Date.current %>
           <%= render "items/shared/header_undone", date: date %>
         <% else %>
           <%= render "items/shared/header", date: date %>

@@ -8,7 +8,7 @@ class TasksController < ApplicationController
     @item = @task.build_item(user: current_user)
     @item.date = @date if @date
     @item.save
-    if @date == Date.today
+    if @date == Date.current
       redirect_to today_index_path
     elsif @date == Date.tomorrow
       redirect_to tomorrow_index_path

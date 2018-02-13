@@ -16,7 +16,7 @@
             <% end %>
           </div>
           <div class="item-card-controls">
-            <% if date < Date.today %>
+            <% if date < Date.current %>
               <%= link_to "Add to today", today_schedule_path(item), method: :put, class: "btn btn-outline-primary btn-sm mx-2"  %>
             <% end %>
             <%= link_to edit_task_path(item.listable), class: "mx-1" do %>
