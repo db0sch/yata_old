@@ -20,10 +20,10 @@
               <%= link_to "Add to today", today_schedule_path(item), method: :put, class: "btn btn-outline-primary btn-sm mx-2"  %>
             <% end %>
             <%= link_to edit_item_path(item), class: "mx-1" do %>
-              <%= octicon "pencil", class: "text-muted" %>
+              <%= octicon "pencil", class: "text-muted align-middle" %>
             <% end %>
             <%= link_to item_path(item), method: :delete, data: { confirm: 'Are you sure?' }, class: "mx-1" do %>
-              <%= octicon "x", class: "text-muted" %>
+              <%= octicon "x", class: "text-muted align-middle" %>
             <% end %>
           </div>
         </div>
