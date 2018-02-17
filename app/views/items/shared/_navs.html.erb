@@ -15,7 +15,7 @@
     <li class="nav-item py-1">
       <%= link_to undone_index_path, class: "nav-link btn btn-dark btn-sm d-inline-block #{'active' if controller_name == 'undone'}" do %>
         Undone
-        <span class="badge badge-light"><%= Item.undone.tasks.before(date).count %></span>
+        <span class="badge badge-light"><%= Item.undone.tasks.before(Date.current).count %></span>
       <% end %>
     </li>
   </ul>

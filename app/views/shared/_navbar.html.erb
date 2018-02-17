@@ -1,9 +1,36 @@
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
   <div class="container">
     <a class="navbar-brand" href="#">Yata</a>
-    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-      <span class="navbar-toggler-icon"></span>
-    </button>
-    <span class="badge badge-light">dbo</span>
+    <% if user_signed_in? %>
+      <div class="collapse navbar-collapse d-md-none" id="navbarSupportedContent">
+        <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
+          <li class="nav-item">
+            <%= link_to today_index_path, class: "nav-link #{'active' if controller_name == 'today'}" do %>
+              Today
+            <% end %>
+          </li>
+          <li class="nav-item">
+            <%= link_to tomorrow_index_path, class: "nav-link #{'active' if controller_name == 'tomorrow'}" do %>
+              Tomorrow
+            <% end %>
+          </li>
+          <li class="nav-item">
+            <%= link_to undone_index_path, class: "nav-link #{'active' if controller_name == 'undone'}" do %>
+              Undone
+            <% end %>
+          </li>
+        </ul>
+      </div>
+      <button class="navbar-toggler d-md-none" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+    <% end %>
+    <div class="d-none d-md-block">
+      <% if user_signed_in? %>
+        <span class="badge badge-light"><%= current_user.email %></span>
+      <% else %>
+        <%= link_to "Sign In", new_user_session_path, class: "badge badge-light" %>
+      <% end %>
+    </div>
   </div>
 </nav>
