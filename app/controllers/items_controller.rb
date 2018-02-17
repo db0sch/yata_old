@@ -1,6 +1,8 @@
 class ItemsController < ApplicationController
+  before_action :set_item, only: [:edit, :update, :destroy]
+
   def create
-    @item = Item.new(task_params)
+    @item = Item.new(item_params)
     @item.kind = "Task"
     @item.user = current_user
     if @item.save
@@ -8,15 +10,26 @@ class ItemsController < ApplicationController
     end
   end
 
+  def edit
+  end
+
   def update
+    @item.update(item_params)
+    redirect_to_tasks_day(@item.date)
   end
 
   def destroy
+    @item.destroy
+    redirect_back(fallback_location: root_path)
   end
 
   private
 
-  def task_params
+  def set_item
+    @item = Item.find(params[:id])
+  end
+
+  def item_params
     params.require(:item).permit(:title, :done, :date)
   end
 
