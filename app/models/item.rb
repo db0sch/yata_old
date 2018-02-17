@@ -4,6 +4,6 @@ class Item < ApplicationRecord
   scope :undone, -> { where(done: false) }
   scope :before, ->(date) { where('date <= ?', date) }
   scope :of, ->(date) { where(date: date) }
-  scope :tasks, -> { where(type: "Task") }
+  scope :tasks, -> { where(kind: "Task") }
 
 end
