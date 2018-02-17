@@ -1,7 +1,7 @@
-<%= simple_form_for item, html: { class: "form-inline" } do |f| %>
-  <div class="d-flex">
-    <%= f.input :title, placeholder: "Have a beer...", input_html: { class: "w-100"}, label_html: { class: "sr-only" }, wrapper_html: { class: "w-100" } %>
+<%= simple_form_for item, html: { class: "form-inline item-new-form" } do |f| %>
+  <div class="d-flex w-100">
+    <%= f.input :title, placeholder: "Have a beer...", input_html: { class: "w-100"}, label_html: { class: "sr-only" }, wrapper_html: { class: "item-input-wrapper" } %>
     <%= f.input :date, as: :hidden, input_html: { value: date } %>
-    <%= f.submit "Add", class: "btn btn-dark" %>
+    <%= f.submit "Add", class: "btn btn-outline-dark ml-1" %>
   </div>
 <% end %>
