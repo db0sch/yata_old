@@ -3,12 +3,12 @@
     <li>
       <div class="card item-card <%= "border-light" if item.done %>">
         <div class="card-body item-card-body">
-          <div class="item-card-checkbox">
+          <div class="item-card-checkbox mr-2">
             <%= form_for item do |f| %>
               <%= f.check_box :done %>
             <% end %>
           </div>
-          <div class="item-card-title">
+          <div class="item-card-title px-1">
             <% if item.done %>
               <p class="text-muted"><del><%= item.title %></del></p>
             <% else %>
