@@ -1,11 +1,7 @@
-<!-- <div class="col-lg-8 offset-lg-2"> -->
-  <%= simple_form_for task, html: { class: "form-inline" } do |f| %>
-    <div class="d-flex">
-      <%= f.input :title, placeholder: "Have a beer...", input_html: { class: "w-100"}, label_html: { class: "sr-only" }, wrapper_html: { class: "w-100" } %>
-      <%= f.fields_for :items, task.item do |item_form| %>
-        <%= item_form.input :date, as: :hidden, input_html: { value: date } %>
-      <% end %>
-      <%= f.submit "Add", class: "btn btn-dark" %>
-    </div>
-  <% end %>
-<!-- </div> -->
+<%= simple_form_for item, html: { class: "form-inline" } do |f| %>
+  <div class="d-flex">
+    <%= f.input :title, placeholder: "Have a beer...", input_html: { class: "w-100"}, label_html: { class: "sr-only" }, wrapper_html: { class: "w-100" } %>
+    <%= f.input :date, as: :hidden, input_html: { value: date } %>
+    <%= f.submit "Add", class: "btn btn-dark" %>
+  </div>
+<% end %>

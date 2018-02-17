@@ -8,8 +8,7 @@ Rails.application.routes.draw do
     resources :today_schedule, only: [:update, :destroy]
   end
 
-  resources :tasks, only: [:create, :update, :destroy, :edit]
-  resources :items, only: [:update, :destroy]
+  resources :items, only: [:edit, :create, :update, :destroy]
 
   authenticated :user do
     root 'items/today#index', as: :authenticated_root

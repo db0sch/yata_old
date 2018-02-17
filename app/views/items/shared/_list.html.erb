@@ -1,28 +1,28 @@
 <ul class="list-unstyled">
   <% items.each do |item| %>
     <li>
-      <div class="card item-card <%= "border-light" if item.listable.done %>">
+      <div class="card item-card <%= "border-light" if item.done %>">
         <div class="card-body item-card-body">
           <div class="item-card-checkbox">
-            <%= form_for item.listable do |f| %>
+            <%= form_for item do |f| %>
               <%= f.check_box :done %>
             <% end %>
           </div>
           <div class="item-card-title">
-            <% if item.listable.done %>
-              <span class="text-muted"><del><%= item.listable.title %></del></span>
+            <% if item.done %>
+              <span class="text-muted"><del><%= item.title %></del></span>
             <% else %>
-              <span><%= item.listable.title %></span>
+              <span><%= item.title %></span>
             <% end %>
           </div>
           <div class="item-card-controls">
             <% if date < Date.current %>
               <%= link_to "Add to today", today_schedule_path(item), method: :put, class: "btn btn-outline-primary btn-sm mx-2"  %>
             <% end %>
-            <%= link_to edit_task_path(item.listable), class: "mx-1" do %>
+            <%= link_to edit_item_path(item), class: "mx-1" do %>
               <%= octicon "pencil", class: "text-muted" %>
             <% end %>
-            <%= link_to task_path(item.listable), method: :delete, data: { confirm: 'Are you sure?' }, class: "mx-1" do %>
+            <%= link_to item_path(item), method: :delete, data: { confirm: 'Are you sure?' }, class: "mx-1" do %>
               <%= octicon "x", class: "text-muted" %>
             <% end %>
           </div>
