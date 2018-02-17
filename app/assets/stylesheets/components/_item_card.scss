@@ -13,7 +13,11 @@
 }
 
 .item-card-title {
-  flex: 1 0 auto;
+  flex: 1 0 80%;
+  p {
+    margin-bottom: 0;
+    word-break: break-all;
+  }
 }
 
 .item-card-controls {
