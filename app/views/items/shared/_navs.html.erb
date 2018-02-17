@@ -1,21 +1,21 @@
 <nav>
   <ul class="nav flex-column">
     <li class="nav-item py-1">
-      <%= link_to today_index_path, class: "nav-link active btn btn-dark btn-sm d-inline-block" do %>
+      <%= link_to today_index_path, class: "nav-link btn btn-dark btn-sm d-inline-block #{'active' if controller_name == 'today'}" do %>
         Today
-        <span class="badge badge-light">4</span>
+        <span class="badge badge-light"><%= Item.undone.tasks.of(Date.tomorrow).count %></span>
       <% end %>
     </li>
     <li class="nav-item py-1">
-      <%= link_to tomorrow_index_path, class: "nav-link btn btn-dark btn-sm d-inline-block" do %>
+      <%= link_to tomorrow_index_path, class: "nav-link btn btn-dark btn-sm d-inline-block #{'active' if controller_name == 'tomorrow'}" do %>
         Tomorrow
-        <span class="badge badge-light">6</span>
+        <span class="badge badge-light"><%= Item.undone.tasks.of(Date.tomorrow).count %></span>
       <% end %>
     </li>
     <li class="nav-item py-1">
-      <%= link_to undone_index_path, class: "nav-link btn btn-dark btn-sm d-inline-block" do %>
+      <%= link_to undone_index_path, class: "nav-link btn btn-dark btn-sm d-inline-block #{'active' if controller_name == 'undone'}" do %>
         Undone
-        <span class="badge badge-light">0</span>
+        <span class="badge badge-light"><%= Item.undone.tasks.before(Date.current).count %></span>
       <% end %>
     </li>
   </ul>

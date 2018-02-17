@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180210185617) do
+ActiveRecord::Schema.define(version: 20180217124541) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -25,19 +25,12 @@ ActiveRecord::Schema.define(version: 20180210185617) do
     t.integer "position"
     t.date "date"
     t.bigint "user_id"
-    t.string "listable_type"
-    t.bigint "listable_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["listable_type", "listable_id"], name: "index_items_on_listable_type_and_listable_id"
-    t.index ["user_id"], name: "index_items_on_user_id"
-  end
-
-  create_table "tasks", force: :cascade do |t|
     t.string "title"
     t.boolean "done", default: false
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.string "kind"
+    t.index ["user_id"], name: "index_items_on_user_id"
   end
 
   create_table "users", force: :cascade do |t|

@@ -1,11 +1,11 @@
 <div class="col-lg-2 offset-lg-1 d-none d-lg-block">
   <!-- Nav list -->
-  <%= render "items/shared/navs", items: items %>
+  <%= render "items/shared/navs", items: items, date: date %>
 </div>
 <div class="col-lg-6">
-  <!-- New task form -->
+  <!-- New item form -->
   <section class="mb-5">
-      <%= render "items/shared/form", task: task, date: date %>
+      <%= render "items/shared/form", item: item, date: date %>
   </section>
   <!-- Items list -->
   <section>
