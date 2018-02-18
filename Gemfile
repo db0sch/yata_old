@@ -19,6 +19,7 @@ gem 'uglifier'
 gem 'webpacker'
 gem 'octicons'
 gem 'octicons_helper'
+gem 'acts_as_list'
 
 group :development do
   gem 'web-console', '>= 3.3.0'
