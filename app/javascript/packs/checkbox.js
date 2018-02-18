@@ -1,8 +1,6 @@
 const listenTaskCheckbox = () => {
-  console.log("hello")
   const forms = document.querySelectorAll(".edit_item");
   forms.forEach((form) => {
-    console.log(form)
     submitFormOnChecked(form);
   })
 }

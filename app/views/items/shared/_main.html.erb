@@ -9,6 +9,9 @@
   </section>
   <!-- Items list -->
   <section>
+    <div id="listContainer"></div>
       <%= render "items/shared/list", items: items, date: date %>
   </section>
 </div>
+
+ <%= javascript_pack_tag 'list' %>
