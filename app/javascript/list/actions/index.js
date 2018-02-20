@@ -2,8 +2,8 @@ export const FETCH_ITEMS = 'FETCH_ITEMS';
 export const UPDATE_ITEM = 'UPDATE_ITEM';
 const ROOT_URL = '/api/v1/items';
 
-export function fetchItems() {
-  const promise = fetch(`${ROOT_URL}`, { credentials: 'same-origin' })
+export function fetchItems(date) {
+  const promise = fetch(`${ROOT_URL}?date=${date}`, { credentials: 'same-origin' })
     .then(response => response.json());
   return {
     type: FETCH_ITEMS,

@@ -33,6 +33,9 @@ class Item extends Component {
     return (
       <div className={`card item-card ${this.state.done ? 'border-light' : ''}`}>
         <div className="card-body item-card-body">
+          <div className="item-card-position mr-2">
+            { this.props.item.position }
+          </div>
           <div className="item-card-checkbox mr-2">
             <form action="">
               <label htmlFor={`checkboxItem{this.props.item.id}`} hidden>Mark as done</label>

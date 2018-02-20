@@ -5,6 +5,7 @@ import { Provider } from 'react-redux';
 import { createStore, combineReducers, applyMiddleware } from 'redux';
 import { logger } from 'redux-logger';
 import reduxPromise from 'redux-promise';
+import moment from 'moment';
 
 import MainList from './containers/main_list';
 import itemsReducer from './reducers/items_reducer';
@@ -18,8 +19,7 @@ const reducers = combineReducers({
 const middlewares = applyMiddleware(logger, reduxPromise);
 
 const listContainer = document.getElementById('listContainer');
-const date = new Date(listContainer.dataset.date);
-console.log(date)
+const date = moment(listContainer.dataset.date);
 const initialState = { date: date };
 
 if (listContainer) {
