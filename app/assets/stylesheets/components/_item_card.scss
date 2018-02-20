@@ -4,8 +4,8 @@
 
 .item-card-body {
   display: flex;
-  padding-top: 0.75rem;
   padding-bottom: 0.75rem;
+  padding-top: 0.75rem;
 }
 
 .item-card-checkbox {
@@ -21,7 +21,7 @@
 }
 
 .item-card-controls {
-  flex: 0 0 10%;
   display: flex;
+  flex: 0 0 10%;
   justify-content: flex-end;
 }
