@@ -4,7 +4,10 @@ class Api::V1::ItemsController < ApplicationController
 
   def index
     @items = current_user.items.today
-    render json: @items
+    respond_to do |format|
+      format.json { render "index.json" }
+      format.html { render "index.json" }
+    end
   end
 
   def create

@@ -1,8 +1,14 @@
 import { FETCH_ITEMS, UPDATE_ITEM } from '../actions/index';
 
 const itemsReducer = (state, action) => {
+  console.log("hello", action.payload);
   if (state === undefined) {
-    return [];
+    return {
+      morning: [],
+      lunch: [],
+      afternoon: [],
+      evening: [],
+    };
   }
   switch (action.type) {
     case FETCH_ITEMS: {
