@@ -9,4 +9,6 @@ class Item < ApplicationRecord
   scope :tomorrow, -> { of(Date.tomorrow) }
   scope :tasks, -> { where(kind: "Task") }
 
+  enum day_part: { morning: 0, lunch: 1, afternoon: 2, evening: 3 }
+
 end
