@@ -7,7 +7,7 @@ import { logger } from 'redux-logger';
 import reduxPromise from 'redux-promise';
 import moment from 'moment';
 
-import MainList from './containers/main_list';
+import DragDropWrapper from './containers/drag_drop_wrapper';
 import itemsReducer from './reducers/items_reducer';
 import dateReducer from './reducers/date_reducer';
 
@@ -20,13 +20,13 @@ const middlewares = applyMiddleware(logger, reduxPromise);
 
 const listContainer = document.getElementById('listContainer');
 const date = moment(listContainer.dataset.date);
-const initialState = { date: date };
+const initialState = { date };
 
 if (listContainer) {
   document.addEventListener('DOMContentLoaded', () => {
     ReactDOM.render(
       <Provider store={createStore(reducers, initialState, middlewares)}>
-        <MainList />
+        <DragDropWrapper />
       </Provider>
       , listContainer
     );

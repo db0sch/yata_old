@@ -31,26 +31,28 @@ class Item extends Component {
 
   render() {
     return (
-      <div className={`card item-card ${this.state.done ? 'border-light' : ''}`}>
-        <div className="card-body item-card-body">
-          <div className="item-card-position mr-2">
-            { this.props.item.position }
-          </div>
-          <div className="item-card-checkbox mr-2">
-            <form action="">
-              <label htmlFor={`checkboxItem{this.props.item.id}`} hidden>Mark as done</label>
-              <input id={`checkboxItem{this.props.item.id}`} type="checkbox" onChange={this.handleChangeCheckbox} checked={this.state.done}/>
-            </form>
-          </div>
-          <div className="item-card-title px-1">
-            { this.renderItemTitle(this.state.done) }
-          </div>
-          <div className="item-card-controls">
-            {/*Controls icon*/}
-            {/*btn dropdown to move to today or tomorrow*/}
+      <li>
+        <div className={`card item-card ${this.state.done ? 'border-light' : ''}`}>
+          <div className="card-body item-card-body">
+            <div className="item-card-position mr-2">
+              { this.props.item.position }
+            </div>
+            <div className="item-card-checkbox mr-2">
+              <form action="">
+                <label htmlFor={`checkboxItem{this.props.item.id}`} hidden >Mark as done</label>
+                <input id={`checkboxItem{this.props.item.id}`} type="checkbox" onChange={this.handleChangeCheckbox} checked={this.state.done} />
+              </form>
+            </div>
+            <div className="item-card-title px-1">
+              { this.renderItemTitle(this.state.done) }
+            </div>
+            <div className="item-card-controls">
+              {/* Controls icon */}
+              {/* btn dropdown to move to today or tomorrow */}
+            </div>
           </div>
         </div>
-      </div>
+      </li>
     );
   }
 }
@@ -60,4 +62,3 @@ function mapDispatchToProps(dispatch) {
 }
 
 export default connect(null, mapDispatchToProps)(Item);
-

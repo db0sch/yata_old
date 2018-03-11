@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
 import { fetchItems } from '../actions';
-import List from '../components/list';
+import DroppableList from './droppable_list'
 
 class MainList extends Component {
   componentWillMount() {
@@ -15,22 +15,22 @@ class MainList extends Component {
       <section id="mainList">
         <article id="morningPart">
           <h5>Morning <span className="badge badge-pill badge-dark">{this.props.items.morning.length}</span></h5>
-          <List day_part="morning" items={this.props.items.morning} />
+          <DroppableList dayPart="morning" items={this.props.items.morning} />
         </article>
-        <hr/>
+        <hr />
         <article id="lunchPart">
           <h5>Lunch <span className="badge badge-pill badge-dark">{this.props.items.lunch.length}</span></h5>
-          <List day_part="lunch" items={this.props.items.lunch} />
+          <DroppableList dayPart="lunch" items={this.props.items.lunch} />
         </article>
-        <hr/>
+        <hr />
         <article id="afternoonPart">
           <h5>Afternoon <span className="badge badge-pill badge-dark">{this.props.items.afternoon.length}</span></h5>
-          <List day_part="afternoon" items={this.props.items.afternoon} />
+          <DroppableList dayPart="afternoon" items={this.props.items.afternoon} />
         </article>
-        <hr/>
+        <hr />
         <article id="eveningPart">
           <h5>Evening <span className="badge badge-pill badge-dark">{this.props.items.evening.length}</span></h5>
-          <List day_part="evening" items={this.props.items.evening} />
+          <DroppableList dayPart="evening" items={this.props.items.evening} />
         </article>
       </section>
     );
