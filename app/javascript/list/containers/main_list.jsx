@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
 import { fetchItems } from '../actions';
-import DroppableList from './droppable_list'
+import DroppableList from './droppable_list';
 
 class MainList extends Component {
   componentWillMount() {

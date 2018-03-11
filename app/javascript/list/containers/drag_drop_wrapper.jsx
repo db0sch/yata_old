@@ -1,18 +1,19 @@
 import React, { Component } from 'react';
 import { DragDropContext } from 'react-beautiful-dnd';
 import MainList from './main_list';
+import { updateItemPosition } from '../actions';
 
 class DragDropWrapper extends Component {
-  onDragEnd = () => {
-    // the only one that is required
+  onDragEnd = (result) => {
+    updateItemPosition({
+      id: result.draggableId,
+      position: result.destination.index,
+      dayPart: result.destination.droppableId
+    });
   };
 
   render() {
-    return (
-      <DragDropContext onDragEnd={this.onDragEnd}>
-        <MainList />
-      </DragDropContext>
-    );
+    return (<DragDropContext onDragEnd={this.onDragEnd}> <MainList /> </DragDropContext>);
   }
 }
 

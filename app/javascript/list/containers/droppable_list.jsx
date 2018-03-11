@@ -16,9 +16,8 @@ class DroppableList extends Component {
             { provided.placeholder }
           </div>
         )}
-
       </Droppable>
-    )
+    );
   }
 }
 

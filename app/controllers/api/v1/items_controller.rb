@@ -38,6 +38,6 @@ class Api::V1::ItemsController < ApplicationController
   end
 
   def item_params
-    params.require(:item).permit(:title, :done, :position, :date)
+    params.require(:item).permit(:title, :done, :position, :date, :day_part)
   end
 end

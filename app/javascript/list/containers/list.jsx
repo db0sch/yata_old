@@ -3,20 +3,20 @@ import { Draggable } from 'react-beautiful-dnd';
 import Item from "./item";
 
 class List extends Component {
-
-  shouldComponentUpdate(nextProps: Props) {
-    if(this.props.items === nextProps.items) {
-      return false;
-    }
-    return true;
-  }
+  // shouldComponentUpdate(nextProps) {
+  //   console.log("same props:", this.props.items === nextProps.items);
+  //   if (this.props.items === nextProps.items) {
+  //     return false;
+  //   }
+  //   return true;
+  // }
 
   render() {
     return (
       <ul className="list-unstyled">
         {this.props.items.map((item) => {
           return (
-            <Draggable draggableId={`draggable-${item.id}`} index={item.position} key={`draggable-${item.id}`}>
+            <Draggable draggableId={item.id} index={item.position} key={`draggable-${item.id}`}>
               {(provided, snapshot) => (
                 <div>
                   <div
@@ -30,7 +30,7 @@ class List extends Component {
                 </div>
               )}
             </Draggable>
-          )
+          );
         })}
       </ul>
     );
