@@ -17,10 +17,10 @@ const itemsReducer = (state, action) => {
     case UPDATE_ITEM: {
       return action.payload;
     }
-    case UPDATE_ITEM_POSITION: {
-      console.log("hello", action.payload)
-      return action.payload;
-    }
+    // case UPDATE_ITEM_POSITION: {
+    //   console.log("hello", action.payload)
+    //   return action.payload;
+    // }
     default:
       return state;
   }

@@ -22,6 +22,7 @@ class Api::V1::ItemsController < ApplicationController
   def update
     @item.update(item_params)
     @items = current_user.items.today
+    puts("ghjkjhgfghjkjhgfghjkhg")
     respond_to do |format|
       format.json { render "index.json" }
       format.html { render "index.json" }

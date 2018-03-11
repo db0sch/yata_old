@@ -1,11 +1,13 @@
 import React, { Component } from 'react';
+import { bindActionCreators } from 'redux';
+import { connect } from 'react-redux';
 import { DragDropContext } from 'react-beautiful-dnd';
 import MainList from './main_list';
 import { updateItemPosition } from '../actions';
 
 class DragDropWrapper extends Component {
   onDragEnd = (result) => {
-    updateItemPosition({
+    this.props.updateItemPosition({
       id: result.draggableId,
       position: result.destination.index,
       dayPart: result.destination.droppableId
@@ -17,4 +19,8 @@ class DragDropWrapper extends Component {
   }
 }
 
-export default DragDropWrapper;
+function mapDispatchToProps(dispatch) {
+  return bindActionCreators({ updateItemPosition }, dispatch);
+}
+
+export default connect(null, mapDispatchToProps)(DragDropWrapper);

@@ -1,6 +1,7 @@
 export const FETCH_ITEMS = 'FETCH_ITEMS';
 export const UPDATE_ITEM = 'UPDATE_ITEM';
-export const UPDATE_ITEM_POSITION = 'UPDATE_ITEM_POSITION';
+// export const UPDATE_ITEM_POSITION = 'UPDATE_ITEM_POSITION';
+
 const ROOT_URL = '/api/v1/items';
 
 export function fetchItems(date) {
@@ -42,8 +43,9 @@ export function updateItemPosition({ id, position, dayPart }) {
     })
   })
     .then(response => response.json());
+  console.log("hello")
   return {
-    type: UPDATE_ITEM_POSITION,
+    type: UPDATE_ITEM,
     payload: promise
   };
 }
