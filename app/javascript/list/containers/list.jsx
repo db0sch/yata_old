@@ -14,9 +14,9 @@ class List extends Component {
   render() {
     return (
       <ul className="list-unstyled">
-        {this.props.items.map((item) => {
+        {this.props.items.map((item, index) => {
           return (
-            <Draggable draggableId={item.id} index={item.position} key={`draggable-${item.id}`}>
+            <Draggable draggableId={item.id} index={index} key={`draggable-${item.id}`}>
               {(provided, snapshot) => (
                 <div>
                   <div
@@ -24,7 +24,7 @@ class List extends Component {
                     {...provided.draggableProps}
                     {...provided.dragHandleProps}
                   >
-                    <Item item={item} />
+                    <Item item={item} index={index} />
                   </div>
                   {provided.placeholder}
                 </div>

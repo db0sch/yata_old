@@ -37,17 +37,11 @@ class MainList extends Component {
   }
 }
 
-function mapStateToProps(state) {
-  console.log(state);
-  return {
-    items: state.items,
-    date: state.date
-  };
-}
+
 
 
 function mapDispatchToProps(dispatch) {
   return bindActionCreators({ fetchItems }, dispatch);
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(MainList);
+export default connect(null, mapDispatchToProps)(MainList);

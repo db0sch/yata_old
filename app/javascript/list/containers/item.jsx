@@ -30,12 +30,13 @@ class Item extends Component {
   }
 
   render() {
+    console.log(this.props)
     return (
       <li>
         <div className={`card item-card ${this.state.done ? 'border-light' : ''}`}>
           <div className="card-body item-card-body">
             <div className="item-card-position mr-2">
-              { this.props.item.position }
+              { this.props.index + 1 }
             </div>
             <div className="item-card-checkbox mr-2">
               <form action="">
